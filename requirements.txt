@@ -1,0 +1,21 @@
+# Core data science libraries
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Hugging Face datasets for loading MedQA-USMLE
+datasets>=2.0.0
+
+# Jupyter notebook support
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Note: sys, os, and typing are part of Python's standard library
+# and don't need to be installed separately
+
+# Optional but recommended for better performance
+# Uncomment if you want to use these
+# scikit-learn>=1.1.0
+# plotly>=5.0.0
+# wordcloud>=1.8.0 
