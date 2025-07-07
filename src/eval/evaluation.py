@@ -53,12 +53,12 @@ def run_evaluation(
 
 
 def main():
-    task_to_run = "community|usmle-qa|0|0"
-    # task_to_run = "community|usmle-qa|0|0,helm|truthfulqa|0|0"
+    task_to_run = "community|usmle-qa-cf|5|0"
+    # task_to_run = "helm|truthfulqa|0|0"
 
     models_eval = [
         {
-            "model_name": "openai-community/gpt2",
+            "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
             "use_chat_template": False,
             "batch_size": 1,
             # "limit": 20
