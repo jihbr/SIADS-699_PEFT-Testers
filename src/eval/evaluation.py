@@ -1,4 +1,4 @@
-import os
+import torch
 from lighteval.logging.evaluation_tracker import EvaluationTracker
 from lighteval.models.transformers.transformers_model import TransformersModelConfig
 from lighteval.pipeline import Pipeline, PipelineParameters, ParallelismManager
@@ -48,47 +48,82 @@ def run_evaluation(
     pipeline.save_and_push_results()
     pipeline.show_results()
 
+    # Clean up
+    print("Cleaning up memory")
+    del pipeline
+    del model_config
+    torch.cuda.empty_cache()
+    print("Cleanup complete")
 
 def main():
     tasks_to_run = [
-        # USMLE CF and MCF evals
+        # Medical evals
         "community|usmle-qa-cf|5|0",
         "community|usmle-qa-mcf|5|0",
+        "helm|med_qa|0|0"
+        # General evals
+        # MMLU
+        # HumanEval
+        # GSM8K
+        # IFEval
+        # Hallucination evals
+        # ThuthfulQA
+        # Safety evals
+        # XSTest
+        # HarmBench
         ]
     
     gcs_bucket_name = "open-llm-finetuning"
 
     models_eval = [
-        # Pre-finetuned
+        # # Pre-finetuned (1) (Llama 2 7b)
         {
             "model_name": "meta-llama/Llama-2-7b-hf",
             "use_chat_template": False,
-            "batch_size": 6,
+            "batch_size": 4,
         },
-        # Fully finetuned
+        # # Pre-finetuned (2) (Llama 3 8b)
+        {
+            "model_name": "meta-llama/Llama-3.1-8B",
+            "use_chat_template": False,
+            "batch_size": 4,
+        },
+        # # Fully finetuned
         {
             "model_name": "Sirius27/BeingWell_llama2_7b",
             "use_chat_template": False,
-            "batch_size": 6,
+            "batch_size": 4,
         },
+        # Med Leaderboard (1)
+        {
+            "model_name": "johnsnowlabs/JSL-MedLlama-3-8B-v1.0",
+            "use_chat_template": False,
+            "batch_size": 4,
+        },
+        # Med Leaderboard (2)
+        # {
+        #     "model_name": "johnsnowlabs/JSL-MedLlama-3-8B-v1.0",
+        #     "use_chat_template": False,
+        #     "batch_size": 4,
+        # },
         # LoRA finetuned
         {
             "model_name": "jihbr/usmle-llama7b-lora",
             "use_chat_template": False,
-            "batch_size": 6,
+            "batch_size": 4,
             "tokenizer_name": "meta-llama/Llama-2-7b-hf",
         },
         # DoRA finetuned
-        {
-            "model_name": "jihbr/usmle-llama7b-dora",
-            "use_chat_template": False,
-            "batch_size": 6,
-            "tokenizer_name": "meta-llama/Llama-2-7b-hf",
-        },
+        # {
+        #     "model_name": "jihbr/usmle-llama7b-dora",
+        #     "use_chat_template": False,
+        #     "batch_size": 4,
+        #     "tokenizer_name": "meta-llama/Llama-2-7b-hf",
+        # },
     ]
 
     output_directory = f"gcs://{gcs_bucket_name}/evaluation_results"
-
+    
     for task_to_run in tasks_to_run:
         for model_details in models_eval:
             run_evaluation(

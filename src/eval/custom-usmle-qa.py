@@ -6,17 +6,6 @@ from lighteval.metrics.metrics import Metrics
 
 LETTER_TO_INDEX = {"A": 0, "B": 1, "C": 2, "D": 3}
 
-def prompt_fn(line: dict, task_name: str = None) -> Doc:
-    choices = [line["options"][key] for key in sorted(line["options"].keys())]
-
-    return Doc(
-        task_name=task_name,
-        query=line["question"],
-        choices=choices,
-        gold_index=LETTER_TO_INDEX[line["answer_idx"]],
-        instruction="",
-    )
-
 def prompt_fn_mcf(line: dict, task_name: str = None) -> Doc:
     choices = [f" {key}. {value}" for key, value in sorted(line["options"].items())]
     query = f"Question: {line['question']}\n" + "\n".join(choices) + "\nAnswer:"
