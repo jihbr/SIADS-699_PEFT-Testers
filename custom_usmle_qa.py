@@ -38,7 +38,7 @@ task_mcf = LightevalTaskConfig(
     evaluation_splits=["test"],
     few_shots_split="train",
     few_shots_select="sequential",
-    metric=[Metrics.loglikelihood_acc],
+    metrics=[Metrics.loglikelihood_acc],
 )
 
 task_cf = LightevalTaskConfig(
@@ -51,7 +51,7 @@ task_cf = LightevalTaskConfig(
     evaluation_splits=["test"],
     few_shots_split="train",
     few_shots_select="sequential",
-    metric=[Metrics.loglikelihood_acc_norm],
+    metrics=[Metrics.loglikelihood_acc_norm],
 )
 
 TASKS_TABLE = [task_mcf, task_cf]
