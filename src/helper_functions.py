@@ -128,12 +128,20 @@ def display_sample_questions(df: pd.DataFrame, num_samples: int = 3) -> None:
         print(f"Correct Answer: {row['label']}")
         print("-" * 80)
 
-    # Preprocess dataset for finetuning
+    # Preprocess dataset for finetuning (Answer)
 def format_mcf_finetuning(example):
     option_keys = sorted(example['options'].keys())
     formatted_options = "\n".join([f"{key}. {example['options'][key]}" for key in option_keys])
     prompt = f"Question: {example['question']}\n{formatted_options}\nAnswer:"
     completion = example['answer']
+    return {"prompt": prompt, "completion": completion}
+
+# Preprocess dataset for finetuning (Letter)
+def format_letter_finetuning(example):
+    option_keys = sorted(example['options'].keys())
+    formatted_options = "\n".join([f"{key}. {example['options'][key]}" for key in option_keys])
+    prompt = f"Question: {example['question']}\n{formatted_options}\nAnswer:"
+    completion = example['answer_idx']
     return {"prompt": prompt, "completion": completion}
 
 
