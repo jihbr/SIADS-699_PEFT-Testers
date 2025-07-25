@@ -10,10 +10,25 @@ The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 v
 
 ### ***Brandon and Pooja maybe here you could explain the specific steps needed for attaching the GPU
 
-### Cloning the Repository
-Once your Vertex AI Workbench environment is setup, the next step is to clone the repository.
+## Cloning the Repository in Vertex AI Workbench
 
-First click Open JupyterLab --> Then click the Git tab in the top left of your screen --> Within the Git tab click Clone a Repository --> In the space to enter remote repository url, enter: https://github.com/jihbr/SIADS-699_PEFT-Testers --> Next you will be prompted for your GitHub Username and Personal Access Token (PAT) --> After you enter this information the remote repository will be cloned to your Vertex AI Workbench Environment
+1. **Open JupyterLab**  
+   Click the "Open JupyterLab" option in your Vertex AI Workbench interface.
+
+2. **Access Git Tab**  
+   Click the Git tab in the top left navigation panel.
+
+3. **Clone Repository**  
+   Within the Git tab, click "Clone a Repository".
+
+4. **Enter Repository URL**  
+   In the dialog box, enter: https://github.com/jihbr/SIADS-699_PEFT-Testers
+
+5. **Authentication**  
+You'll be prompted for your GitHub username and your Personal Access Token (PAT)
+
+6. **Completion**  
+After successful authentication, the repository will be cloned to your Vertex AI Workbench environment.
 
 ## Repository Structure
 ```
