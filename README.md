@@ -8,7 +8,12 @@ This project utilizes Vertex AI Workbench from Google Cloud Platform (GCP). In o
 
 The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 vCPUs, 32GB RAM), and the GPU instance attached is NVIDIA L4 x 1.
 
-### Brandon and Pooja maybe here you could explain the specific steps needed for attaching the GPU
+### ***Brandon and Pooja maybe here you could explain the specific steps needed for attaching the GPU
+
+### Cloning the Repository
+Once your Vertex AI Workbench environment is setup, the next step is to clone the repository.
+
+First click Open JupyterLab --> Then click the Git tab in the top left of your screen --> Within the Git tab click Clone a Repository --> In the space to enter remote repository url, enter: https://github.com/jihbr/SIADS-699_PEFT-Testers --> Next you will be prompted for your GitHub Username and Personal Access Token (PAT) --> After you enter this information the remote repository will be cloned to your Vertex AI Workbench Environment
 
 ## Repository Structure
 ```
