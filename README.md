@@ -25,9 +25,9 @@ The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 v
    In the dialog box, enter: https://github.com/jihbr/SIADS-699_PEFT-Testers
 
 5. **Authentication**  
-You'll be prompted for your GitHub username and your Personal Access Token (PAT)
+You'll be prompted for your GitHub username and your [Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-6. **Completion**  
+7. **Completion**  
 After successful authentication, the repository will be cloned to your Vertex AI Workbench environment.
 
 ## Repository Structure
