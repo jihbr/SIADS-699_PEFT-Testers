@@ -10,7 +10,7 @@ The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 v
 
 ### ***Brandon and Pooja maybe here you could explain the specific steps needed for attaching the GPU
 
-## Cloning the Repository in Vertex AI Workbench
+### Cloning the Repository in Vertex AI Workbench
 
 1. **Open JupyterLab**  
    Click the "Open JupyterLab" option in your Vertex AI Workbench interface.
