@@ -30,6 +30,12 @@ You'll be prompted for your GitHub username and your [Personal Access Token (PAT
 7. **Completion**  
 After successful authentication, the repository will be cloned to your Vertex AI Workbench environment.
 
+### Installing Dependencies
+The project's dependencies are tracked in the requirements.txt, to install them simply paste the following command in your Vertex AI Workbench terminal:
+
+```bash
+pip install -r requirements.txt
+```
 ## Repository Structure
 ```
 lighteval/
