@@ -46,9 +46,7 @@ You need to be logged into HuggingFace to access the foundation model.
 Use this [link](https://huggingface.co/meta-llama/Meta-Llama-3-8B) to apply (turnaround is usually less than a day).
 
 3. **Generate a PAT**  
-Use this [link](https://huggingface.co/settings/tokens) to create a new token.  
-Assign access to the foundation model in the repositories permissions section.  
-Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).  
+Use this [link](https://huggingface.co/settings/tokens) to create a new token. Assign access to the foundation model in the repositories permissions section. Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).  
 
 4. **Authentication**  
 Before you run any notebooks or scripts accessing the foundation model, open the terminal and enter the following command:  
