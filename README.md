@@ -43,10 +43,10 @@ The notebooks for fine tuning and script for evaluation utilize Llama-3-8b, from
 You need to be logged into HuggingFace to access the foundation model.
 
 2. **Apply to Access Llama-3-8b**  
-Use this [link](https://huggingface.co/meta-llama/Meta-Llama-3-8B) to apply (turnaround is usually less than a day).
+[Click here to apply to access Llama-3-8b](https://huggingface.co/meta-llama/Meta-Llama-3-8B) (turnaround is usually less than a day).
 
 3. **Generate a PAT**  
-Use this [link](https://huggingface.co/settings/tokens) to create a new token. Assign access to the foundation model in the repositories permissions section. Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).  
+[Create a new PAT in HuggingFace](https://huggingface.co/settings/tokens). Assign access to the foundation model in the repositories permissions section. Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).  
 
 4. **Authentication**  
 Before you run any notebooks or scripts accessing the foundation model, open the terminal and enter the following command:  
