@@ -39,27 +39,27 @@ pip install -r requirements.txt
 ### Accessing the Foundation Model
 The notebooks for fine tuning and script for evaluation utilize Llama-3-8b, from HuggingFace, as the foundation model. In order to access this model in HuggingFace:
 
-1. **Login to HuggingFace/Create an Account**
+1. **Login to HuggingFace/Create an Account**  
 You need to be logged into HuggingFace to access the foundation model.
 
-2. **Apply to Access Llama-3-8b**
+2. **Apply to Access Llama-3-8b**  
 Use this [link](https://huggingface.co/meta-llama/Meta-Llama-3-8B) to apply (turnaround is usually less than a day).
 
-3. **Generate a PAT**
-Use this [link](https://huggingface.co/settings/tokens) to create a new token.
-Assign access to the foundation model in the repositories permissions section.
-Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).
+3. **Generate a PAT**  
+Use this [link](https://huggingface.co/settings/tokens) to create a new token.  
+Assign access to the foundation model in the repositories permissions section.  
+Also in the repositories section, assign write access (This will enable you to push your fine tuned models to your HuggingFace account repository).  
 
-4. **Authentication**
-Before you run any notebooks or scripts accessing the foundation model, open the terminal and enter the following command:
+4. **Authentication**  
+Before you run any notebooks or scripts accessing the foundation model, open the terminal and enter the following command:  
 
 ```bash
 huggingface-cli login
-```
+```  
 
-You will then be prompted for your HuggingFace username and the PAT you generated. After you enter this information you should have access to the foundation model along with write access to your HuggingFace repositories.
+You will then be prompted for your HuggingFace username and the PAT you generated. After you enter this information you should have access to the foundation model along with write access to your HuggingFace repositories.  
 
-*Note: If you want to push your fine tuned models to HuggingFace after running the training notebooks then make sure to change the USERNAME variable at the end to your HuggingFace username.
+*Note: If you want to push your fine tuned models to HuggingFace after running the training notebooks then make sure to change the USERNAME variable at the end to your HuggingFace username.  
 
 
 
