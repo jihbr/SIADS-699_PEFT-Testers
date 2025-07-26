@@ -65,13 +65,14 @@ You will then be prompted for your HuggingFace username and the PAT you generate
 ```
 lighteval/
 ├── notebooks/
-│   ├── eda.ipynb
+│   ├── eda.ipynb 
 │   ├── peft_3-8b_prefix_tune.ipynb
 │   ├── peft_config_subsets.ipynb
 │   ├── peft_dora.ipynb
 │   ├── peft_dora_letters.ipynb
 │   ├── peft_lora.ipynb
 │   ├── peft_lora_letters.ipynb
+│   ├── peft_prefix_letters.ipynb
 │   ├── peft_prefix_tune.ipynb
 │   └── preprocess-usmle.ipynb
 ├── src/
@@ -83,3 +84,45 @@ lighteval/
 ├── README.md
 └── requirements.txt
 ```
+
+## Repository Content
+Descriptions for the repository content listed above.  
+
+**notebooks/eda.ipynb**  
+Initial testing of the data loading function and investigating the label distribution.  
+
+**notebooks/peft_3_8b_prefix_tune.ipynb**   
+Prefix Tuning on Llama-3-8b with full text preprocessing (answer as the label/completion).  
+
+**notebooks/peft_config_subsets.ipynb**    
+LoRA on a 100 row subset of the data.  
+
+**notebooks/peft_dora.ipynb**  
+DoRA on Llama-3-8b with full text preprocessing (answer as the label/completion).  
+
+**notebooks/peft_dora_letters.ipynb**    
+DoRA on Llama-3-8b with letter preprocessing (answer_idx as the label/completion).  
+
+**notebooks/peft_lora.ipynb**  
+LoRA on Llama-3-8b with full text preprocessing (answer as the label/completion).  
+
+**notebooks/peft_lora_letters.ipynb**  
+LoRA on Llama-3-8b with letter preprocessing (answer_idx as the label/completion).  
+
+**notebooks/peft_prefix_letters.ipynb**   
+Prefix Tuning on Llama-3-8b with letter preprocessing (answer_idx as the label/completion).  
+
+**notebooks/peft_prefix_tune.ipynb**   
+Prefix Tuning on a 100 row subset of the data.  
+
+**notebooks/preprocess-usmle.ipynb**  
+Test preprocessing functions used in fine tuning notebooks.  
+
+**src/eval/evaluation.py**   
+Script used for evaluating fine tuned models.
+
+**src/helper_functions.py**  
+Helper functions used in fine tuning notebooks (function to load the data, preprocessing functions for text and letter strategies, etc...).
+
+
+
