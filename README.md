@@ -122,7 +122,14 @@ Test preprocessing functions used in fine tuning notebooks.
 Script used for evaluating fine tuned models.
 
 **src/helper_functions.py**  
-Helper functions used in fine tuning notebooks (function to load the data, preprocessing functions for text and letter strategies, etc...).
+Helper functions used in fine tuning notebooks (function to load the data, preprocessing functions for text and letter strategies, etc...).  
+
+## Licenses  
+**Data**  
+The USMLE-4-Options Dataset is licensed under [Creative Commons Attribution Share Alike 4.0 International](https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/cc-by-sa-4.0.md). To view it click the link or see the LICENSE_DATA file.  
+
+**Foundation Model**  
+Llama-3-8b is licensed under [META LLAMA 3 COMMUNITY LICENSE AGREEMENT](https://huggingface.co/meta-llama/Meta-Llama-3-8B/blob/main/LICENSE). To view it click the link or see the LICENSE_MODEL file.
 
 
 
