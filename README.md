@@ -25,7 +25,7 @@ Attaching a GPU to the Vertex AI instance is a requirement for tuning Llama-3-8b
 
    Machine type: g2-standard-8 (Graphics Optimized)
    GPU: In the "GPUs" section, check "Attach GPU" and select NVIDIA L4 GPU
-   Select 1 GPU (1 is enough for PEFT tasks)
+   Select 1 GPU (1 is enough for PEFT on Llama-3-8b.)
 
 
 ### Cloning the Repository in Vertex AI Workbench
