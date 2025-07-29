@@ -6,9 +6,27 @@ LLMs are powerful general-purpose tools, but they often hallucinate and can be u
 ## Setup
 This project utilizes Vertex AI Workbench from Google Cloud Platform (GCP). In order to source the necessary compute, [GCP offers a free $300 credit to new customers](https://cloud.google.com/free?_gl=1*8qysm5*_ga*MTYzNzQ4MjUwMy4xNzQ4OTA2NDEz*_ga_WH2QY8WWF5*czE3NTM0Nzg3MzQkbzMyJGcxJHQxNzUzNDc4OTczJGo2MCRsMCRoMA..&hl=en).  
 
-The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 vCPUs, 32GB RAM), and the GPU instance attached is NVIDIA L4 x 1.
+### GPU Setup
 
-### ***Brandon and Pooja maybe here you could explain the specific steps needed for attaching the GPU
+The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 vCPUs, 32GB RAM), and the GPU instance attached is NVIDIA L4 x 1. We this GPU since it was made available in us-central-1 region and zone. To add the GPU to the region, we requested access through our GCP free trial and GPUS_ALL_REGIONS = 1.
+
+Attaching a GPU to the Vertex AI instance is a requirement for tuning Llama-3-8b. 
+
+#### Steps to add a GPU:
+1. **Go to Vertex AI Workbench**
+
+   Navigate to Vertex AI > Workbench and click "New Notebook" > "User-managed notebooks"
+
+3. **Select a Prebuilt Environment**
+
+   Choose a prebuilt container (eg. PyTorch, Python) and Click "Customize" to configure the machine type and GPU.
+
+4. **Choose Machine and GPU**
+
+   Machine type: g2-standard-8 (Graphics Optimized)
+   GPU: In the "GPUs" section, check "Attach GPU" and select NVIDIA L4 GPU
+   Select 1 GPU (1 is enough for PEFT tasks)
+
 
 ### Cloning the Repository in Vertex AI Workbench
 
