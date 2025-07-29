@@ -8,7 +8,7 @@ This project utilizes Vertex AI Workbench from Google Cloud Platform (GCP). In o
 
 ### GPU Setup
 
-The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 vCPUs, 32GB RAM), and the GPU instance attached is NVIDIA L4 x 1. We used this GPU since it was made available in us-central-1 region and zone. To add the GPU to the region, we requested access through our GCP free trial and set GPUS_ALL_REGIONS = 1.
+The machine type used is g2-standard-8 (Graphics Optimized: 1 NVIDIA L4 GPU, 8 vCPUs, 32GB RAM), and the GPU instance attached is NVIDIA L4 x 1. We used this GPU since it was made available in us-central-1 region and zone. To add the GPU to the region, we requested access through our GCP free trial and configured GPUS_ALL_REGIONS = 1.
 
 Attaching a GPU to the Vertex AI instance is a requirement for tuning Llama-3-8b. 
 
