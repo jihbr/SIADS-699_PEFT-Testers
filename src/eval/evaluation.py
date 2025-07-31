@@ -84,7 +84,7 @@ def run_adapter_evaluation(
 
     pipeline_params = PipelineParameters(
         launcher_type=ParallelismManager.ACCELERATE,
-        custom_tasks_directory="custom_usmle_qa.py",
+        custom_tasks_directory="src/eval/custom_usmle_qa.py",
         max_samples=limit,
     )
     
@@ -123,10 +123,10 @@ def main():
     tasks_to_run = [
         # Medical evals
         # "community|usmle-qa-letter|1|0",
-        # "community|usmle-qa-text|1|0",
-        # "community|usmle-qa-letter-text|1|0",
-        "community|usmle-qa-mcf|4|0",
-        "community|usmle-qa-cf|4|0",
+        "community|usmle-qa-text|1|0",
+        "community|usmle-qa-letter-text|1|0",
+        # "community|usmle-qa-mcf|4|0",
+        # "community|usmle-qa-cf|4|0",
         # "helm|med_qa|0|0"
         # General evals
         # MMLU
@@ -142,18 +142,17 @@ def main():
     
     gcs_bucket_name = "open-llm-finetuning"
     output_directory = f"gcs://{gcs_bucket_name}/evaluation_results"
-
     transformer_models_to_eval = [
         # {
         #     "model_name": "meta-llama/Llama-2-7b-hf",
         #     "use_chat_template": False,
         #     "batch_size": 4,
         # },
-        {
-            "model_name": "meta-llama/Meta-Llama-3-8B",
-            "use_chat_template": False,
-            "batch_size": 1,
-        },
+        # {
+        #     "model_name": "meta-llama/Meta-Llama-3-8B",
+        #     "use_chat_template": False,
+        #     "batch_size": 1,
+        # },
         # {
         #     "model_name": "Sirius27/BeingWell_llama2_7b",
         #     "use_chat_template": False,
@@ -168,58 +167,58 @@ def main():
 
     # Define adapter-based (fine-tuned) models to evaluate
     adapter_models_to_eval = [
+        {
+            "model_name": "pippalap/llama3-8b-usmle-prefix-letters",
+            "base_model": "meta-llama/Meta-Llama-3-8B",
+            "adapter_weights": True,
+            "use_chat_template": False,
+            "batch_size": 1,
+            "tokenizer_name": "meta-llama/Meta-Llama-3-8B",
+        },
         # {
-        #     "model_name": "pippalap/llama8b-usmle-prefix-tune",
-        #     "base_model": "meta-llama/Meta-Llama-3-8B",
+        #     "model_name": "jihbr/usmle-llama8b-dora-letters-v1",
         #     "adapter_weights": True,
+        #     "base_model": "meta-llama/Meta-Llama-3-8B",
         #     "use_chat_template": False,
         #     "batch_size": 1,
         #     "tokenizer_name": "meta-llama/Meta-Llama-3-8B",
         # },
-        {
-            "model_name": "jihbr/usmle-llama8b-dora",
-            "adapter_weights": True,
-            "base_model": "meta-llama/Meta-Llama-3-8B",
-            "use_chat_template": False,
-            "batch_size": 1,
-            "tokenizer_name": "meta-llama/Meta-Llama-3-8B",
-        },
-        {
-            "model_name": "jihbr/usmle-llama8b-qlora",
-            "adapter_weights": True,
-            "base_model": "meta-llama/Meta-Llama-3-8B",
-            "use_chat_template": False,
-            "batch_size": 1,
-            "tokenizer_name": "meta-llama/Meta-Llama-3-8B",
-        },
+        # {
+        #     "model_name": "jihbr/usmle-llama8b-qlora_letters",
+        #     "adapter_weights": True,
+        #     "base_model": "meta-llama/Meta-Llama-3-8B",
+        #     "use_chat_template": False,
+        #     "batch_size": 1,
+        #     "tokenizer_name": "meta-llama/Meta-Llama-3-8B",
+        # },
     ]
 
     # Loop through each task and run evaluations
     for task in tasks_to_run:
 
         # # finetuned model
-        # for model_details in adapter_models_to_eval:
-        #     run_adapter_evaluation(
-        #         adapter_weights=model_details["adapter_weights"],
-        #         model_name=model_details["model_name"],
-        #         base_model=model_details["base_model"],
-        #         tasks=task,
-        #         batch_size=model_details["batch_size"],
-        #         output_dir=output_directory,
-        #         use_chat_template=model_details["use_chat_template"],
-        #         tokenizer_name=model_details.get("tokenizer_name")
-        #     )
-        
-        # transformer model
-        for model_details in transformer_models_to_eval:
-            run_transformer_evaluation(
+        for model_details in adapter_models_to_eval:
+            run_adapter_evaluation(
+                adapter_weights=model_details["adapter_weights"],
                 model_name=model_details["model_name"],
+                base_model=model_details["base_model"],
                 tasks=task,
                 batch_size=model_details["batch_size"],
                 output_dir=output_directory,
                 use_chat_template=model_details["use_chat_template"],
                 tokenizer_name=model_details.get("tokenizer_name")
             )
+        
+        # transformer model
+        # for model_details in transformer_models_to_eval:
+        #     run_transformer_evaluation(
+        #         model_name=model_details["model_name"],
+        #         tasks=task,
+        #         batch_size=model_details["batch_size"],
+        #         output_dir=output_directory,
+        #         use_chat_template=model_details["use_chat_template"],
+        #         tokenizer_name=model_details.get("tokenizer_name")
+        #     )
 
 
 
