@@ -83,7 +83,8 @@ You will then be prompted for your HuggingFace username and the PAT you generate
 ```
 lighteval/
 ├── notebooks/
-│   ├── eda.ipynb 
+│   ├── eda.ipynb
+│   └── evaluation-runner.ipynb
 │   ├── peft_3-8b_prefix_tune.ipynb
 │   ├── peft_config_subsets.ipynb
 │   ├── peft_dora.ipynb
@@ -108,6 +109,9 @@ Descriptions for the repository content listed above.
 
 **notebooks/eda.ipynb**  
 Initial testing of the data loading function and investigating the label distribution.  
+
+**notebooks/evaluation_runner.ipynb**   
+Configures the evaluation tasks and selects the pretrained or finetuned models to be evaluated.  
 
 **notebooks/peft_3_8b_prefix_tune.ipynb**   
 Prefix Tuning on Llama-3-8b with full text preprocessing (answer as the label/completion).  
@@ -137,7 +141,10 @@ Prefix Tuning on a 100 row subset of the data.
 Test preprocessing functions used in fine tuning notebooks.  
 
 **src/eval/evaluation.py**   
-Script used for evaluating fine tuned models.
+Defines functions used for evaluating fine tuned models.
+
+**src/eval/custom_uslme_qa.py**   
+Defines custom evaluations (log-likelihood and generative) for the USMLE dataset.
 
 **src/helper_functions.py**  
 Helper functions used in fine tuning notebooks (function to load the data, preprocessing functions for text and letter strategies, etc...).  
