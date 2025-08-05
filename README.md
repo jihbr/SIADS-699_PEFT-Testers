@@ -84,8 +84,7 @@ You will then be prompted for your HuggingFace username and the PAT you generate
 lighteval/
 ├── notebooks/
 │   ├── eda.ipynb
-│   ├── eval_failure_analysis_viz.ipynb
-│   ├── evaluation_runner.ipynb
+│   └── evaluation-runner.ipynb
 │   ├── peft_3-8b_prefix_tune.ipynb
 │   ├── peft_config_subsets.ipynb
 │   ├── peft_dora.ipynb
@@ -97,7 +96,6 @@ lighteval/
 │   └── preprocess-usmle.ipynb
 ├── src/
 │   ├── eval/
-│   │   └── custom_usmle_qa.py
 │   │   └── evaluation.py
 │   └── helper_functions.py
 ├── .gitignore
@@ -111,9 +109,6 @@ Descriptions for the repository content listed above.
 
 **notebooks/eda.ipynb**  
 Initial testing of the data loading function and investigating the label distribution.  
-
-**notebooks/eval_failure_analysis_viz.ipynb**   
-Creates the visualizations for evaluation and failure analysis sections of the report.  
 
 **notebooks/evaluation_runner.ipynb**   
 Configures the evaluation tasks and selects the pretrained or finetuned models to be evaluated.  

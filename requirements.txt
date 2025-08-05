@@ -26,6 +26,9 @@ torchaudio==2.0.2
 # bitsandbytes==0.40.2
 # --extra-index-url https://download.pytorch.org/whl/cu118
 
+# Quantization support
+bitsandbytes==0.40.2
+
 # Jupyter and utilities
 jupyter==1.0.0
 ipykernel==6.25.0
